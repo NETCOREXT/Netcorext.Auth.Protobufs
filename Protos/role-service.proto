@@ -19,12 +19,16 @@ service RoleService {
 }
 
 message CreateRoleRequest {
-  string name = 1;
-  int32 priority = 2;
-  bool disabled = 3;
-  repeated RoleExtendData extendData = 4;
-  repeated Permission permissions = 5;
-
+  repeated Role roles = 1;
+  
+  message Role {
+    string name = 1;
+    int32 priority = 2;
+    bool disabled = 3;
+    repeated RoleExtendData extendData = 4;
+    repeated Permission permissions = 5;  
+  }
+  
   message RoleExtendData {
     string key = 1;
     google.protobuf.StringValue value = 2;
@@ -55,7 +59,7 @@ message CreateRoleRequest {
 }
 
 message DeleteRoleRequest {
-  int64 id = 1;
+  repeated int64 ids = 1;
 }
 
 message UpdateRoleRequest {

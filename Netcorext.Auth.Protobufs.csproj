@@ -13,7 +13,6 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeProjectReferences</TargetsForTfmSpecificBuildOutput>
     <Authors>NETCOREXT</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/NETCOREXT/Netcorext.Auth.Protobufs</PackageProjectUrl>
@@ -24,26 +23,20 @@
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.20" />
     <PackageReference Include="Grpc.Core" Version="2.46" />
-    <PackageReference Include="Grpc.Tools" Version="2.46">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Grpc.Tools" Version="2.46" />
+    <PackageReference Include="Netcorext.Contracts.Protobufs" Version="1.0.0-dev.*" GeneratePathProperty="true"  />
   </ItemGroup>
-
+   
   <ItemGroup>
-    <Protobuf OutputDir="$(Protobuf_OutputPath)" GrpcServices="Both" ProtoRoot="Protos" Link="Protos/Enums/*.proto" Include="Protos/Enums/*.proto" />
-    <Protobuf OutputDir="$(Protobuf_OutputPath)" GrpcServices="Both" ProtoRoot="Protos" Link="Protos/*.proto" Include="Protos/*.proto" />
+    <Protobuf OutputDir="$(Protobuf_OutputPath)" GrpcServices="None" ProtoRoot="Protos" Include="Protos/Enums/*.proto" />
+    <Protobuf OutputDir="$(Protobuf_OutputPath)" GrpcServices="Both" ProtoRoot="Protos" Include="Protos/*.proto" />
   </ItemGroup>
   
-  <ItemGroup>
-    <PackageReference Include="Netcorext.Contracts.Protobufs" Version="1.0.0-dev.*" />
-  </ItemGroup>
-  
-  <Target Name="IncludeProjectReferences" DependsOnTargets="ResolveReferences">
+  <Target Name="CopyProtos" AfterTargets="Restore;ResolveReferences">
     <ItemGroup>
-      <IncludeBuildOutput />
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+      <Netcorext_Contracts_Protobufs Include="$(PkgNetcorext_Contracts_Protobufs)/**/*.proto" />
     </ItemGroup>
+    <Copy SourceFiles="@(Netcorext_Contracts_Protobufs)" DestinationFolder="$(ProjectDir)/Protos/Netcorext.Contracts.Protobufs/Result" Condition="Exists('%(RootDir)%(Directory)%(Filename)%(Extension)')" />
   </Target>
-
+  
 </Project>

@@ -1,3 +1,0 @@
-[submodule "Protos/Netcorext.Contracts.Protobufs"]
-	path = Protos/Netcorext.Contracts.Protobufs
-	url = https://github.com/NETCOREXT/Netcorext.Contracts.Protobufs.git
