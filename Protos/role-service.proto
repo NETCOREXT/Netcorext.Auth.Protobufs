@@ -54,7 +54,7 @@ message CreateRoleRequest {
   message Result {
     string code = 1;
     string message = 2;
-    google.protobuf.Int64Value content = 3;
+    repeated int64 content = 3;
   }
 }
 
