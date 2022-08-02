@@ -45,15 +45,16 @@ message CreateTokenRequest {
 }
 
 message ExternalSignInRequest {
-  string provider = 1;
-  string uniqueId = 2;
-  google.protobuf.StringValue email = 3;
-  google.protobuf.StringValue phoneNumber = 4;
-  google.protobuf.StringValue otp = 5;
-  google.protobuf.Int32Value tokenExpireSeconds = 6;
-  google.protobuf.Int32Value refreshTokenExpireSeconds = 7;
-  google.protobuf.Int32Value codeExpireSeconds = 8;
-  repeated UserRole roles = 9;
+  string username = 1;
+  string provider = 2;
+  string uniqueId = 3;
+  google.protobuf.StringValue email = 4;
+  google.protobuf.StringValue phoneNumber = 5;
+  google.protobuf.StringValue otp = 6;
+  google.protobuf.Int32Value tokenExpireSeconds = 7;
+  google.protobuf.Int32Value refreshTokenExpireSeconds = 8;
+  google.protobuf.Int32Value codeExpireSeconds = 9;
+  repeated UserRole roles = 10;
 
   message UserRole {
     int64 roleId = 1;

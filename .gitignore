@@ -378,3 +378,6 @@ docker-compose.yml
 vol/
 
 .vscode
+
+### Custom
+Netcorext.Contracts.Protobufs/
