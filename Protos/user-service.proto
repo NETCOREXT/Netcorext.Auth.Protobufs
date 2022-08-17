@@ -66,7 +66,7 @@ message ExistsUserRequest {
 message GetUserRequest {
   netcorext.contracts.protobufs.Paging paging = 1;
   google.protobuf.StringValue keyword = 2;
-  repeated int64 id = 3;
+  repeated int64 ids = 3;
   google.protobuf.StringValue username = 4;
   google.protobuf.StringValue email = 5;
   google.protobuf.BoolValue emailConfirmed = 6;
