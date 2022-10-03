@@ -30,6 +30,9 @@
   <ItemGroup>
     <Protobuf OutputDir="$(Protobuf_OutputPath)" GrpcServices="None" ProtoRoot="Protos" Include="Protos/Enums/*.proto" />
     <Protobuf OutputDir="$(Protobuf_OutputPath)" GrpcServices="Both" ProtoRoot="Protos" Include="Protos/*.proto" />
+    <Protobuf Update="Protos\auth-api-permission-service.proto">
+      <Generator>MSBuild:Compile</Generator>
+    </Protobuf>
   </ItemGroup>
   
   <Target Name="CopyProtos" AfterTargets="ResolveReferences">

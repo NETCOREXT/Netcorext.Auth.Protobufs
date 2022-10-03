@@ -6,7 +6,7 @@ import "google/protobuf/wrappers.proto";
 import "Netcorext.Contracts.Protobufs/Result/result.proto";
 import "Enums/permission-type.proto";
 
-service PermissionService {
+service PermissionValidationService {
   rpc ValidatePermission (ValidatePermissionRequest) returns (netcorext.contracts.protobufs.Result);
 }
 
@@ -15,9 +15,9 @@ message ValidatePermissionRequest {
   repeated google.protobuf.Int64Value roleId = 2;
   string functionId = 3;
   netcorext.auth.protobufs.enums.PermissionType permissionType = 4;
-  repeated PermissionExtendData extendData = 5;
+  repeated PermissionCondition permissionConditions = 5;
 
-  message PermissionExtendData {
+  message PermissionCondition {
     string key = 1;
     string value = 2;
   }

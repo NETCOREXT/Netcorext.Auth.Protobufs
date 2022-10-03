@@ -23,8 +23,9 @@ message CreateTokenRequest {
   string clientSecret = 3;
   google.protobuf.StringValue username = 4;
   google.protobuf.StringValue password = 5;
-  google.protobuf.StringValue scope = 6;
-  google.protobuf.StringValue refreshToken = 7;
+  google.protobuf.StringValue uniqueId = 6;
+  google.protobuf.StringValue scope = 7;
+  google.protobuf.StringValue refreshToken = 8;
 
   message Result {
     string code = 1;

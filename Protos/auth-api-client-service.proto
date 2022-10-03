@@ -59,8 +59,7 @@ message GetClientRequest {
   message ClientRole {
     google.protobuf.Int64Value roleId = 1;
     google.protobuf.StringValue name = 2;
-    google.protobuf.Int32Value priority = 3;
-    google.protobuf.Timestamp expireDate = 4;
+    google.protobuf.Timestamp expireDate = 3;
   }
 
   message ClientExtendData {
@@ -91,25 +90,22 @@ message GetClientRequest {
     }
 
     message ClientRole {
-      int64 id = 1;
-      int64 roleId = 2;
-      string name = 3;
-      int32 priority = 4;
-      google.protobuf.Timestamp expireDate = 5;
-      google.protobuf.Timestamp creationDate = 6;
-      int64 creatorId = 7;
-      google.protobuf.Timestamp modificationDate = 8;
-      int64 modifierId = 9;
-    }
-
-    message ClientExtendData {
-      int64 id = 1;
-      string key = 2;
-      google.protobuf.StringValue value = 3;
+      int64 roleId = 1;
+      string name = 2;
+      google.protobuf.Timestamp expireDate = 3;
       google.protobuf.Timestamp creationDate = 4;
       int64 creatorId = 5;
       google.protobuf.Timestamp modificationDate = 6;
       int64 modifierId = 7;
+    }
+
+    message ClientExtendData {
+      string key = 1;
+      google.protobuf.StringValue value = 2;
+      google.protobuf.Timestamp creationDate = 3;
+      int64 creatorId = 4;
+      google.protobuf.Timestamp modificationDate = 5;
+      int64 modifierId = 6;
     }
   }
 }
