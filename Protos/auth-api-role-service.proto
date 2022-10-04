@@ -12,6 +12,7 @@ import "Enums/operation-mode.proto";
 
 service RoleService {
   rpc CreateRole (CreateRoleRequest) returns (CreateRoleRequest.Result);
+  rpc CloneRole (CloneRoleRequest) returns (CloneRoleRequest.Result);
   rpc DeleteRole (DeleteRoleRequest) returns (netcorext.contracts.protobufs.Result);
   rpc GetRole (GetRoleRequest) returns (GetRoleRequest.Result);
   rpc RoleExists (RoleExistsRequest) returns (netcorext.contracts.protobufs.Result);
@@ -50,6 +51,38 @@ message CreateRoleRequest {
     string code = 1;
     string message = 2;
     repeated int64 content = 3;
+  }
+}
+
+message CloneRoleRequest {
+  int64 sourceId = 1;
+  string name = 2;
+  bool disabled = 3;
+  repeated RoleExtendData extendData = 4;
+  repeated RolePermission permissions = 5;
+  repeated RolePermissionCondition permissionConditions = 6;
+
+  message RoleExtendData {
+    string key = 1;
+    google.protobuf.StringValue value = 2;
+  }
+
+  message RolePermission {
+    int64 PermissionId = 1;
+  }
+
+  message RolePermissionCondition {
+    int64 permissionId = 1;
+    int32 priority = 2;
+    string key = 3;
+    string value = 4;
+    bool allowed = 5;
+  }
+
+  message Result {
+    string code = 1;
+    string message = 2;
+    google.protobuf.Int64Value content = 3;
   }
 }
 
