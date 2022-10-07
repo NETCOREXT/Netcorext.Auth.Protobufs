@@ -162,27 +162,7 @@ message GetUserPermissionRequest {
   message Result {
     string code = 1;
     string message = 2;
-    repeated Role content = 3;
-
-    message Role {
-      int64 id = 1;
-      string name = 2;
-      repeated Permission permissions = 3;
-    }
-
-    message Permission {
-      int64 id = 1;
-      string name = 2;
-      int32 priority = 3;
-      repeated Rule rules = 4;
-    }
-    
-    message Rule {
-      int64 id = 1;
-      string functionId = 2;
-      netcorext.auth.protobufs.enums.PermissionType permissionType = 3;
-      bool allowed = 4;
-    }
+    repeated int64 content = 3;
   }
 }
 
