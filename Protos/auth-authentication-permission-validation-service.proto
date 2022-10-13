@@ -14,8 +14,9 @@ message ValidatePermissionRequest {
   google.protobuf.Int64Value userId = 1;
   repeated google.protobuf.Int64Value roleId = 2;
   string functionId = 3;
-  netcorext.auth.protobufs.enums.PermissionType permissionType = 4;
-  repeated PermissionCondition permissionConditions = 5;
+  google.protobuf.StringValue group = 4;
+  netcorext.auth.protobufs.enums.PermissionType permissionType = 5;
+  repeated PermissionCondition permissionConditions = 6;
 
   message PermissionCondition {
     string key = 1;

@@ -42,9 +42,10 @@ message CreateRoleRequest {
   message RolePermissionCondition {
     int64 permissionId = 1;
     int32 priority = 2;
-    string key = 3;
-    string value = 4;
-    bool allowed = 5;
+    google.protobuf.StringValue group = 3;
+    string key = 4;
+    string value = 5;
+    bool allowed = 6;
   }
 
   message Result {
@@ -74,9 +75,10 @@ message CloneRoleRequest {
   message RolePermissionCondition {
     int64 permissionId = 1;
     int32 priority = 2;
-    string key = 3;
-    string value = 4;
-    bool allowed = 5;
+    google.protobuf.StringValue group = 3;
+    string key = 4;
+    string value = 5;
+    bool allowed = 6;
   }
 
   message Result {
@@ -114,9 +116,10 @@ message UpdateRoleRequest {
     google.protobuf.Int64Value id = 2;
     int64 permissionId = 3;
     int32 priority = 4;
-    string key = 5;
-    string value = 6;
-    bool allowed = 7;
+    google.protobuf.StringValue group = 5;
+    string key = 6;
+    string value = 7;
+    bool allowed = 8;
   }
 }
 
@@ -178,13 +181,14 @@ message GetRoleRequest {
       int64 id = 1;
       int64 permissionId = 2;
       int32 priority = 3;
-      string key = 4;
-      string value = 5;
-      bool allowed = 6;
-      google.protobuf.Timestamp creationDate = 7;
-      int64 creatorId = 8;
-      google.protobuf.Timestamp modificationDate = 9;
-      int64 modifierId = 10;
+      google.protobuf.StringValue group = 4;
+      string key = 5;
+      string value = 6;
+      bool allowed = 7;
+      google.protobuf.Timestamp creationDate = 8;
+      int64 creatorId = 9;
+      google.protobuf.Timestamp modificationDate = 10;
+      int64 modifierId = 11;
     }
   }
 }
