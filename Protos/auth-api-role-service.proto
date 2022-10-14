@@ -62,6 +62,7 @@ message CloneRoleRequest {
   repeated RoleExtendData extendData = 4;
   repeated RolePermission permissions = 5;
   repeated RolePermissionCondition permissionConditions = 6;
+  repeated DefaultPermissionCondition defaultPermissionConditions = 7;
 
   message RoleExtendData {
     string key = 1;
@@ -79,6 +80,14 @@ message CloneRoleRequest {
     string key = 4;
     string value = 5;
     bool allowed = 6;
+  }
+
+  message DefaultPermissionCondition {
+    int32 priority = 1;
+    google.protobuf.StringValue group = 2;
+    string key = 3;
+    string value = 4;
+    bool allowed = 5;
   }
 
   message Result {
