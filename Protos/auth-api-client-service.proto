@@ -19,12 +19,13 @@ message CreateClientRequest {
   string secret = 1;
   string name = 2;
   google.protobuf.StringValue callbackUrl = 3;
-  google.protobuf.Int32Value tokenExpireSeconds = 4;
-  google.protobuf.Int32Value refreshTokenExpireSeconds = 5;
-  google.protobuf.Int32Value codeExpireSeconds = 6;
-  bool disabled = 7;
-  repeated ClientRole roles = 8;
-  repeated ClientExtendData extendData = 9;
+  bool allowedRefreshToken = 4;
+  google.protobuf.Int32Value tokenExpireSeconds = 5;
+  google.protobuf.Int32Value refreshTokenExpireSeconds = 6;
+  google.protobuf.Int32Value codeExpireSeconds = 7;
+  bool disabled = 8;
+  repeated ClientRole roles = 9;
+  repeated ClientExtendData extendData = 10;
 
   message ClientRole {
     int64 roleId = 1;
@@ -77,16 +78,17 @@ message GetClientRequest {
       int64 id = 1;
       string name = 2;
       google.protobuf.StringValue callbackUrl = 3;
-      google.protobuf.Int32Value tokenExpireSeconds = 4;
-      google.protobuf.Int32Value refreshTokenExpireSeconds = 5;
-      google.protobuf.Int32Value codeExpireSeconds = 6;
-      bool disabled = 7;
-      google.protobuf.Timestamp creationDate = 8;
-      int64 creatorId = 9;
-      google.protobuf.Timestamp modificationDate = 10;
-      int64 modifierId = 11;
-      repeated ClientRole roles = 12;
-      repeated ClientExtendData extendData = 13;
+      bool allowedRefreshToken = 4;
+      google.protobuf.Int32Value tokenExpireSeconds = 5;
+      google.protobuf.Int32Value refreshTokenExpireSeconds = 6;
+      google.protobuf.Int32Value codeExpireSeconds = 7;
+      bool disabled = 8;
+      google.protobuf.Timestamp creationDate = 9;
+      int64 creatorId = 10;
+      google.protobuf.Timestamp modificationDate = 11;
+      int64 modifierId = 12;
+      repeated ClientRole roles = 13;
+      repeated ClientExtendData extendData = 14;
     }
 
     message ClientRole {
@@ -115,12 +117,13 @@ message UpdateClientRequest {
   google.protobuf.StringValue secret = 2;
   google.protobuf.StringValue name = 3;
   google.protobuf.StringValue callbackUrl = 4;
-  google.protobuf.Int32Value tokenExpireSeconds = 5;
-  google.protobuf.Int32Value refreshTokenExpireSeconds = 6;
-  google.protobuf.Int32Value codeExpireSeconds = 7;
-  google.protobuf.BoolValue disabled = 8;
-  repeated ClientRole roles = 9;
-  repeated ClientExtendData extendData = 10;
+  google.protobuf.BoolValue allowedRefreshToken = 5;
+  google.protobuf.Int32Value tokenExpireSeconds = 6;
+  google.protobuf.Int32Value refreshTokenExpireSeconds = 7;
+  google.protobuf.Int32Value codeExpireSeconds = 8;
+  google.protobuf.BoolValue disabled = 9;
+  repeated ClientRole roles = 10;
+  repeated ClientExtendData extendData = 11;
 
   message ClientRole {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
