@@ -16,5 +16,6 @@ message ValidateTokenRequest {
     bool validateIssuer = 1;
     bool validateAudience = 2;
     bool validateLifetime = 3;
+    bool validateIssuerSigningKey = 4;
   }
 }
