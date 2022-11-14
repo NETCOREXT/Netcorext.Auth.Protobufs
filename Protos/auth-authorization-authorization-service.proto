@@ -52,7 +52,7 @@ message ExternalSignInRequest {
   google.protobuf.StringValue email = 4;
   google.protobuf.StringValue phoneNumber = 5;
   google.protobuf.StringValue otp = 6;
-  google.protobuf.BoolValue allowedRefreshToken = 7;
+  bool allowedRefreshToken = 7;
   google.protobuf.Int32Value tokenExpireSeconds = 8;
   google.protobuf.Int32Value refreshTokenExpireSeconds = 9;
   google.protobuf.Int32Value codeExpireSeconds = 10;
