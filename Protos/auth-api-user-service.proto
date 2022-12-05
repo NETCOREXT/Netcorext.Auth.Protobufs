@@ -33,6 +33,7 @@ message CreateUserRequest {
   repeated UserExtendData extendData = 12;
   repeated UserExternalLogin externalLogins = 13;
   repeated UserPermissionCondition permissionConditions = 14;
+  google.protobuf.Int64Value customId = 15;
 
   message UserRole {
     int64 roleId = 1;

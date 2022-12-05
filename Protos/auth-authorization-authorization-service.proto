@@ -57,6 +57,7 @@ message ExternalSignInRequest {
   google.protobuf.Int32Value refreshTokenExpireSeconds = 9;
   google.protobuf.Int32Value codeExpireSeconds = 10;
   repeated UserRole roles = 11;
+  google.protobuf.Int64Value customId = 12;
 
   message UserRole {
     int64 roleId = 1;
