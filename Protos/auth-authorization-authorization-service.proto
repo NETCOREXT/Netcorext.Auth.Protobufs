@@ -58,6 +58,7 @@ message ExternalSignInRequest {
   google.protobuf.Int32Value codeExpireSeconds = 10;
   repeated UserRole roles = 11;
   google.protobuf.Int64Value customId = 12;
+  bool ThrowErrorWhenUserNotFound = 13;
 
   message UserRole {
     int64 roleId = 1;
