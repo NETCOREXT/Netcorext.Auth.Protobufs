@@ -12,6 +12,7 @@ service ClientService {
   rpc CreateClient (CreateClientRequest) returns (CreateClientRequest.Result);
   rpc DeleteClient (DeleteClientRequest) returns (netcorext.contracts.protobufs.Result);
   rpc GetClient (GetClientRequest) returns (GetClientRequest.Result);
+  rpc GetClientPermission (GetClientPermissionRequest) returns (GetClientPermissionRequest.Result);
   rpc UpdateClient (UpdateClientRequest) returns (netcorext.contracts.protobufs.Result);
 }
 
@@ -108,6 +109,31 @@ message GetClientRequest {
       int64 creatorId = 4;
       google.protobuf.Timestamp modificationDate = 5;
       int64 modifierId = 6;
+    }
+  }
+}
+
+message GetClientPermissionRequest {
+  int64 id = 1;
+  repeated PermissionCondition permissionConditions = 2;
+
+  message PermissionCondition {
+    google.protobuf.StringValue group = 1;
+    repeated Condition conditions = 2;
+  }
+
+  message Condition {
+    string key = 1;
+    string value = 2;
+  }
+
+  message Result {
+    string code = 1;
+    string message = 2;
+    repeated ClientPermission content = 3;
+
+    message ClientPermission {
+      repeated int64 permissionIds = 1;
     }
   }
 }
