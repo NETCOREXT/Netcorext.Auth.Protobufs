@@ -221,10 +221,45 @@ message GetUserRoleRequest {
       int64 roleId = 2;
       string name = 3;
       google.protobuf.Timestamp expireDate = 4;
-      google.protobuf.Timestamp creationDate = 5;
-      int64 creatorId = 6;
-      google.protobuf.Timestamp modificationDate = 7;
-      int64 modifierId = 8;
+      repeated RoleExtendData extendData = 5;
+      repeated RolePermission permissions = 6;
+      repeated RolePermissionCondition permissionConditions = 7;
+      google.protobuf.Timestamp creationDate = 8;
+      int64 creatorId = 9;
+      google.protobuf.Timestamp modificationDate = 10;
+      int64 modifierId = 11;
+    }
+
+    message RoleExtendData {
+      string key = 1;
+      string value = 2;
+      google.protobuf.Timestamp creationDate = 3;
+      int64 creatorId = 4;
+      google.protobuf.Timestamp modificationDate = 5;
+      int64 modifierId = 6;
+    }
+
+    message RolePermission {
+      int64 permissionId = 1;
+      string name = 2;
+      google.protobuf.Timestamp creationDate = 3;
+      int64 creatorId = 4;
+      google.protobuf.Timestamp modificationDate = 5;
+      int64 modifierId = 6;
+    }
+
+    message RolePermissionCondition {
+      int64 id = 1;
+      int64 permissionId = 2;
+      int32 priority = 3;
+      google.protobuf.StringValue group = 4;
+      string key = 5;
+      string value = 6;
+      bool allowed = 7;
+      google.protobuf.Timestamp creationDate = 8;
+      int64 creatorId = 9;
+      google.protobuf.Timestamp modificationDate = 10;
+      int64 modifierId = 11;
     }
   }
 }
