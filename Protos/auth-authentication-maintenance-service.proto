@@ -1,0 +1,16 @@
+syntax = "proto3";
+package netcorext.auth.authentication;
+option csharp_namespace = "Netcorext.Auth.Protobufs";
+
+import "google/protobuf/wrappers.proto";
+import "Netcorext.Contracts.Protobufs/Result/result.proto";
+
+service MaintenanceService {
+  rpc Maintain (MaintainRequest) returns (netcorext.contracts.protobufs.Result);
+}
+
+message MaintainRequest {
+  bool enabled = 1;
+  google.protobuf.StringValue message = 2;
+  repeated google.protobuf.Int64Value excludeRoles = 3;
+}
