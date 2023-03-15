@@ -57,6 +57,7 @@ message CreateUserRequest {
     string key = 4;
     string value = 5;
     bool allowed = 6;
+    google.protobuf.Timestamp expireDate = 7;
   }
 
   message Result {
@@ -103,20 +104,6 @@ message GetUserRequest {
   message UserExternalLogin {
     google.protobuf.StringValue provider = 1;
     google.protobuf.StringValue uniqueId = 2;
-  }
-
-  message UserPermissionCondition {
-    int64 id = 1;
-    int64 permissionId = 2;
-    int32 priority = 3;
-    google.protobuf.StringValue group = 4;
-    string key = 5;
-    string value = 6;
-    bool allowed = 7;
-    google.protobuf.Timestamp creationDate = 8;
-    int64 creatorId = 9;
-    google.protobuf.Timestamp modificationDate = 10;
-    int64 modifierId = 11;
   }
 
   message Result {
@@ -179,6 +166,21 @@ message GetUserRequest {
       int64 creatorId = 4;
       google.protobuf.Timestamp modificationDate = 5;
       int64 modifierId = 6;
+    }
+
+    message UserPermissionCondition {
+      int64 id = 1;
+      int64 permissionId = 2;
+      int32 priority = 3;
+      google.protobuf.StringValue group = 4;
+      string key = 5;
+      string value = 6;
+      bool allowed = 7;
+      google.protobuf.Timestamp expireDate = 8;
+      google.protobuf.Timestamp creationDate = 9;
+      int64 creatorId = 10;
+      google.protobuf.Timestamp modificationDate = 11;
+      int64 modifierId = 12;
     }
   }
 }
@@ -309,5 +311,6 @@ message UpdateUserRequest {
     string key = 6;
     string value = 7;
     bool allowed = 8;
+    google.protobuf.Timestamp expireDate = 9;
   }
 }
