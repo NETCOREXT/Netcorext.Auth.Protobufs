@@ -31,7 +31,7 @@ message CreateRoleRequest {
   
   message RoleExtendData {
     string key = 1;
-    google.protobuf.StringValue value = 2;
+    string value = 2;
   }
 
   message RolePermission {
@@ -65,7 +65,7 @@ message CloneRoleRequest {
 
   message RoleExtendData {
     string key = 1;
-    google.protobuf.StringValue value = 2;
+    string value = 2;
   }
 
   message RolePermission {
@@ -111,7 +111,7 @@ message UpdateRoleRequest {
   message RoleExtendData {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
     string key = 2;
-    google.protobuf.StringValue value = 3;
+    string value = 3;
   }
 
   message RolePermission {
@@ -145,7 +145,7 @@ message GetRoleRequest {
 
   message RoleExtendData {
     string key = 1;
-    google.protobuf.StringValue value = 2;
+    string value = 2;
   }
 
   message Result {

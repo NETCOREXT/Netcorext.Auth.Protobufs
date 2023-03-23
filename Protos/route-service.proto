@@ -38,6 +38,6 @@ message RegisterRouteRequest {
 
   message RouteValue {
     string key = 1;
-    google.protobuf.StringValue value = 2;
+    string value = 2;
   }
 }
