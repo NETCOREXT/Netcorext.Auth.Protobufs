@@ -21,20 +21,21 @@ service UserService {
 
 message CreateUserRequest {
   string username = 1;
-  string password = 2;
-  google.protobuf.StringValue email = 3;
-  google.protobuf.StringValue phoneNumber = 4;
-  bool twoFactorEnabled = 5;
-  bool requiredChangePassword = 6;
-  bool allowedRefreshToken = 7;
-  google.protobuf.Int32Value tokenExpireSeconds = 8;
-  google.protobuf.Int32Value refreshTokenExpireSeconds = 9;
-  google.protobuf.Int32Value codeExpireSeconds = 10;
-  repeated UserRole roles = 11;
-  repeated UserExtendData extendData = 12;
-  repeated UserExternalLogin externalLogins = 13;
-  repeated UserPermissionCondition permissionConditions = 14;
-  google.protobuf.Int64Value customId = 15;
+  google.protobuf.StringValue displayName = 2;
+  string password = 3;
+  google.protobuf.StringValue email = 4;
+  google.protobuf.StringValue phoneNumber = 5;
+  bool twoFactorEnabled = 6;
+  bool requiredChangePassword = 7;
+  bool allowedRefreshToken = 8;
+  google.protobuf.Int32Value tokenExpireSeconds = 9;
+  google.protobuf.Int32Value refreshTokenExpireSeconds = 10;
+  google.protobuf.Int32Value codeExpireSeconds = 11;
+  repeated UserRole roles = 12;
+  repeated UserExtendData extendData = 13;
+  repeated UserExternalLogin externalLogins = 14;
+  repeated UserPermissionCondition permissionConditions = 15;
+  google.protobuf.Int64Value customId = 16;
 
   message UserRole {
     int64 roleId = 1;
@@ -81,14 +82,15 @@ message GetUserRequest {
   netcorext.contracts.protobufs.Paging paging = 1;
   repeated int64 ids = 2;
   google.protobuf.StringValue username = 3;
-  google.protobuf.StringValue email = 4;
-  google.protobuf.BoolValue emailConfirmed = 5;
-  google.protobuf.StringValue phoneNumber = 6;
-  google.protobuf.BoolValue phoneNumberConfirmed = 7;
-  google.protobuf.BoolValue disabled = 8;
-  UserRole role = 9;
-  repeated UserExtendData extendData = 10;
-  UserExternalLogin externalLogin = 11;
+  google.protobuf.StringValue displayName = 4;
+  google.protobuf.StringValue email = 5;
+  google.protobuf.BoolValue emailConfirmed = 6;
+  google.protobuf.StringValue phoneNumber = 7;
+  google.protobuf.BoolValue phoneNumberConfirmed = 8;
+  google.protobuf.BoolValue disabled = 9;
+  UserRole role = 10;
+  repeated UserExtendData extendData = 11;
+  UserExternalLogin externalLogin = 12;
 
   message UserRole {
     google.protobuf.Int64Value roleId = 1;
@@ -115,29 +117,30 @@ message GetUserRequest {
     message User {
       int64 id = 1;
       string username = 2;
-      google.protobuf.StringValue email = 3;
-      bool emailConfirmed = 4;
-      google.protobuf.StringValue phoneNumber = 5;
-      bool phoneNumberConfirmed = 6;
-      google.protobuf.StringValue otp = 7;
-      bool otpBound = 8;
-      bool twoFactorEnabled = 9;
-      bool requiredChangePassword = 10;
-      bool allowedRefreshToken = 11;
-      google.protobuf.Int32Value tokenExpireSeconds = 12;
-      google.protobuf.Int32Value refreshTokenExpireSeconds = 13;
-      google.protobuf.Int32Value codeExpireSeconds = 14;
-      google.protobuf.Timestamp lastSignInDate = 15;
-      google.protobuf.StringValue lastSignInIp = 16;
-      bool disabled = 17;
-      google.protobuf.Timestamp creationDate = 18;
-      int64 creatorId = 19;
-      google.protobuf.Timestamp modificationDate = 20;
-      int64 modifierId = 21;
-      repeated UserRole roles = 22;
-      repeated UserExtendData extendData = 23;
-      repeated UserExternalLogin externalLogins = 24;
-      repeated UserPermissionCondition permissionConditions  = 25;
+      string displayName = 3;
+      google.protobuf.StringValue email = 4;
+      bool emailConfirmed = 5;
+      google.protobuf.StringValue phoneNumber = 6;
+      bool phoneNumberConfirmed = 7;
+      google.protobuf.StringValue otp = 8;
+      bool otpBound = 9;
+      bool twoFactorEnabled = 10;
+      bool requiredChangePassword = 11;
+      bool allowedRefreshToken = 12;
+      google.protobuf.Int32Value tokenExpireSeconds = 13;
+      google.protobuf.Int32Value refreshTokenExpireSeconds = 14;
+      google.protobuf.Int32Value codeExpireSeconds = 15;
+      google.protobuf.Timestamp lastSignInDate = 16;
+      google.protobuf.StringValue lastSignInIp = 17;
+      bool disabled = 18;
+      google.protobuf.Timestamp creationDate = 19;
+      int64 creatorId = 20;
+      google.protobuf.Timestamp modificationDate = 21;
+      int64 modifierId = 22;
+      repeated UserRole roles = 23;
+      repeated UserExtendData extendData = 24;
+      repeated UserExternalLogin externalLogins = 25;
+      repeated UserPermissionCondition permissionConditions  = 26;
     }
 
     message UserRole {
@@ -197,6 +200,7 @@ message GetUserIdentityRequest {
     message UserIdentity {
       int64 id = 1;
       string username = 2;
+      string displayName = 3;
     }
   }
 }
@@ -285,20 +289,21 @@ message GetUserRoleRequest {
 message UpdateUserRequest {
   int64 id = 1;
   google.protobuf.StringValue username = 2;
-  google.protobuf.StringValue password = 3;
-  google.protobuf.StringValue email = 4;
-  google.protobuf.StringValue phoneNumber = 5;
-  google.protobuf.BoolValue twoFactorEnabled = 6;
-  google.protobuf.BoolValue requiredChangePassword = 7;
-  google.protobuf.BoolValue allowedRefreshToken = 8;
-  google.protobuf.Int32Value tokenExpireSeconds = 9;
-  google.protobuf.Int32Value refreshTokenExpireSeconds = 10;
-  google.protobuf.Int32Value codeExpireSeconds = 11;
-  google.protobuf.BoolValue disabled = 12;
-  repeated UserRole roles = 13;
-  repeated UserExtendData extendData = 14;
-  repeated UserExternalLogin externalLogins = 15;
-  repeated UserPermissionCondition permissionConditions = 16;
+  google.protobuf.StringValue displayName = 3;
+  google.protobuf.StringValue password = 4;
+  google.protobuf.StringValue email = 5;
+  google.protobuf.StringValue phoneNumber = 6;
+  google.protobuf.BoolValue twoFactorEnabled = 7;
+  google.protobuf.BoolValue requiredChangePassword = 8;
+  google.protobuf.BoolValue allowedRefreshToken = 9;
+  google.protobuf.Int32Value tokenExpireSeconds = 10;
+  google.protobuf.Int32Value refreshTokenExpireSeconds = 11;
+  google.protobuf.Int32Value codeExpireSeconds = 12;
+  google.protobuf.BoolValue disabled = 13;
+  repeated UserRole roles = 14;
+  repeated UserExtendData extendData = 15;
+  repeated UserExternalLogin externalLogins = 16;
+  repeated UserPermissionCondition permissionConditions = 17;
 
   message UserRole {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
