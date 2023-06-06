@@ -232,6 +232,9 @@ message GetUserPermissionRequest {
 
 message GetUserRoleRequest {
   repeated int64 ids = 1;
+  bool includeExtendData = 2;
+  bool includePermission = 3;
+  bool includePermissionCondition = 4;
 
   message Result {
     string code = 1;
