@@ -6,14 +6,15 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "Netcorext.Contracts.Protobufs/Result/result.proto";
 import "Netcorext.Contracts.Protobufs/Result/paging.proto";
+import "Enums/permission-type.proto";
 import "Enums/operation-mode.proto";
-
 
 service RoleService {
   rpc CreateRole (CreateRoleRequest) returns (CreateRoleRequest.Result);
   rpc CloneRole (CloneRoleRequest) returns (CloneRoleRequest.Result);
   rpc DeleteRole (DeleteRoleRequest) returns (netcorext.contracts.protobufs.Result);
   rpc GetRole (GetRoleRequest) returns (GetRoleRequest.Result);
+  rpc GetRoleFunction (GetRoleFunctionRequest) returns (GetRoleFunctionRequest.Result);
   rpc RoleExists (RoleExistsRequest) returns (netcorext.contracts.protobufs.Result);
   rpc UpdateRole (UpdateRoleRequest) returns (netcorext.contracts.protobufs.Result);
 }
@@ -197,6 +198,36 @@ message GetRoleRequest {
       int64 creatorId = 9;
       google.protobuf.Timestamp modificationDate = 10;
       int64 modifierId = 11;
+    }
+  }
+}
+
+message GetRoleFunctionRequest {
+  repeated int64 ids = 1;
+  repeated PermissionCondition permissionConditions = 2;
+
+  message PermissionCondition {
+    google.protobuf.StringValue group = 1;
+    repeated Condition conditions = 2;
+  }
+
+  message Condition {
+    string key = 1;
+    string value = 2;
+  }
+
+  message Result {
+    string code = 1;
+    string message = 2;
+    repeated RoleFunction content = 3;
+
+    message RoleFunction {
+      repeated Function functions = 1;
+    }
+
+    message Function {
+      string id = 1;
+      netcorext.auth.protobufs.enums.PermissionType permissionType = 2;
     }
   }
 }

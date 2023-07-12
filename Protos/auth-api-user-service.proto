@@ -6,6 +6,7 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "Netcorext.Contracts.Protobufs/Result/result.proto";
 import "Netcorext.Contracts.Protobufs/Result/paging.proto";
+import "Enums/permission-type.proto";
 import "Enums/operation-mode.proto";
 
 service UserService {
@@ -14,6 +15,7 @@ service UserService {
   rpc ExistsUser (ExistsUserRequest) returns (netcorext.contracts.protobufs.Result);
   rpc GetUser (GetUserRequest) returns (GetUserRequest.Result);
   rpc GetUserIdentity (GetUserIdentityRequest) returns (GetUserIdentityRequest.Result);
+  rpc GetUserFunction (GetUserFunctionRequest) returns (GetUserFunctionRequest.Result);
   rpc GetUserPermission (GetUserPermissionRequest) returns (GetUserPermissionRequest.Result);
   rpc GetUserRole (GetUserRoleRequest) returns (GetUserRoleRequest.Result);
   rpc UpdateUser (UpdateUserRequest) returns (netcorext.contracts.protobufs.Result);
@@ -201,6 +203,36 @@ message GetUserIdentityRequest {
       int64 id = 1;
       string username = 2;
       string displayName = 3;
+    }
+  }
+}
+
+message GetUserFunctionRequest {
+  int64 id = 1;
+  repeated PermissionCondition permissionConditions = 2;
+
+  message PermissionCondition {
+    google.protobuf.StringValue group = 1;
+    repeated Condition conditions = 2;
+  }
+
+  message Condition {
+    string key = 1;
+    string value = 2;
+  }
+
+  message Result {
+    string code = 1;
+    string message = 2;
+    repeated UserFunction content = 3;
+
+    message UserFunction {
+      repeated Function functions = 1;
+    }
+    
+    message Function {
+      string id = 1;
+      netcorext.auth.protobufs.enums.PermissionType permissionType = 2;
     }
   }
 }

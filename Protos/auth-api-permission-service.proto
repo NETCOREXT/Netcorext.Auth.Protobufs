@@ -2,6 +2,7 @@ syntax = "proto3";
 package netcorext.auth.api;
 option csharp_namespace = "Netcorext.Auth.Protobufs";
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 import "Netcorext.Contracts.Protobufs/Result/result.proto";
@@ -14,6 +15,7 @@ service PermissionService {
   rpc CreatePermission (CreatePermissionRequest) returns (CreatePermissionRequest.Result);
   rpc DeletePermission (DeletePermissionRequest) returns (netcorext.contracts.protobufs.Result);
   rpc GetPermission (GetPermissionRequest) returns (GetPermissionRequest.Result);
+  rpc GetRouteFunction (google.protobuf.Empty) returns (GetRouteFunctionResult);
   rpc UpdatePermission (UpdatePermissionRequest) returns (netcorext.contracts.protobufs.Result);
 }
 
@@ -101,4 +103,10 @@ message GetPermissionRequest {
       int64 modifierId = 8;
     }
   }
+}
+
+message GetRouteFunctionResult {
+  string code = 1;
+  string message = 2;
+  repeated string content = 3;
 }
