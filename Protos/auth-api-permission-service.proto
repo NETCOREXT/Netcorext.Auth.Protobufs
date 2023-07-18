@@ -55,9 +55,10 @@ message UpdatePermissionRequest {
 
   message Rule {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
-    string functionId = 2;
-    netcorext.auth.protobufs.enums.PermissionType permissionType = 3;
-    bool allowed = 4;
+    google.protobuf.Int64Value id = 2;
+    string functionId = 3;
+    netcorext.auth.protobufs.enums.PermissionType permissionType = 4;
+    bool allowed = 5;
   }
 }
 
