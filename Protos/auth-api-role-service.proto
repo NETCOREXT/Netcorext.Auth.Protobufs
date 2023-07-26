@@ -28,6 +28,7 @@ message CreateRoleRequest {
     repeated RoleExtendData extendData = 3;
     repeated RolePermission permissions = 4;
     repeated RolePermissionCondition permissionConditions = 5;
+    google.protobuf.Int64Value customId = 6;
   }
   
   message RoleExtendData {
@@ -63,6 +64,7 @@ message CloneRoleRequest {
   repeated RolePermission permissions = 5;
   repeated RolePermissionCondition permissionConditions = 6;
   repeated DefaultPermissionCondition defaultPermissionConditions = 7;
+  google.protobuf.Int64Value customId = 8;
 
   message RoleExtendData {
     string key = 1;
