@@ -64,7 +64,7 @@ message UpdatePermissionRequest {
 
 message GetPermissionRequest {
   netcorext.contracts.protobufs.Paging paging = 1;
-  google.protobuf.Int64Value id = 2;
+  repeated int64 ids = 2;
   google.protobuf.StringValue name = 3;
   google.protobuf.BoolValue disabled = 4;
   PermissionRule rule = 5;
