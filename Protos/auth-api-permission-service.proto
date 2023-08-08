@@ -26,7 +26,8 @@ message CreatePermissionRequest {
     string name = 1;
     int32 priority = 2;
     bool disabled = 3;
-    repeated Rule rules = 4;
+    google.protobuf.StringValue state = 4;
+    repeated Rule rules = 5;
   }
   
   message Rule {
@@ -51,7 +52,8 @@ message UpdatePermissionRequest {
   google.protobuf.StringValue name = 2;
   google.protobuf.Int32Value priority = 3;
   google.protobuf.BoolValue disabled = 4;
-  repeated Rule rules = 5;
+  google.protobuf.StringValue state = 5;
+  repeated Rule rules = 6;
 
   message Rule {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
@@ -67,7 +69,8 @@ message GetPermissionRequest {
   repeated int64 ids = 2;
   google.protobuf.StringValue name = 3;
   google.protobuf.BoolValue disabled = 4;
-  PermissionRule rule = 5;
+  repeated string states = 5;
+  PermissionRule rule = 6;
 
   message PermissionRule {
     google.protobuf.StringValue functionId = 1;

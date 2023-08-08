@@ -26,9 +26,10 @@ message CreateRoleRequest {
     string name = 1;
     bool disabled = 2;
     repeated RoleExtendData extendData = 3;
-    repeated RolePermission permissions = 4;
-    repeated RolePermissionCondition permissionConditions = 5;
-    google.protobuf.Int64Value customId = 6;
+    repeated string permissionFromStates = 4;
+    repeated RolePermission permissions = 5;
+    repeated RolePermissionCondition permissionConditions = 6;
+    google.protobuf.Int64Value customId = 7;
   }
   
   message RoleExtendData {
@@ -42,11 +43,9 @@ message CreateRoleRequest {
 
   message RolePermissionCondition {
     int64 permissionId = 1;
-    int32 priority = 2;
-    google.protobuf.StringValue group = 3;
-    string key = 4;
-    string value = 5;
-    bool allowed = 6;
+    google.protobuf.StringValue group = 2;
+    string key = 3;
+    string value = 4;
   }
 
   message Result {
@@ -77,19 +76,15 @@ message CloneRoleRequest {
 
   message RolePermissionCondition {
     int64 permissionId = 1;
-    int32 priority = 2;
-    google.protobuf.StringValue group = 3;
-    string key = 4;
-    string value = 5;
-    bool allowed = 6;
-  }
-
-  message DefaultPermissionCondition {
-    int32 priority = 1;
     google.protobuf.StringValue group = 2;
     string key = 3;
     string value = 4;
-    bool allowed = 5;
+  }
+
+  message DefaultPermissionCondition {
+    google.protobuf.StringValue group = 1;
+    string key = 2;
+    string value = 3;
   }
 
   message Result {
@@ -126,11 +121,9 @@ message UpdateRoleRequest {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
     google.protobuf.Int64Value id = 2;
     int64 permissionId = 3;
-    int32 priority = 4;
-    google.protobuf.StringValue group = 5;
-    string key = 6;
-    string value = 7;
-    bool allowed = 8;
+    google.protobuf.StringValue group = 4;
+    string key = 5;
+    string value = 6;
   }
 }
 
@@ -191,15 +184,13 @@ message GetRoleRequest {
     message RolePermissionCondition {
       int64 id = 1;
       int64 permissionId = 2;
-      int32 priority = 3;
-      google.protobuf.StringValue group = 4;
-      string key = 5;
-      string value = 6;
-      bool allowed = 7;
-      google.protobuf.Timestamp creationDate = 8;
-      int64 creatorId = 9;
-      google.protobuf.Timestamp modificationDate = 10;
-      int64 modifierId = 11;
+      google.protobuf.StringValue group = 3;
+      string key = 4;
+      string value = 5;
+      google.protobuf.Timestamp creationDate = 6;
+      int64 creatorId = 7;
+      google.protobuf.Timestamp modificationDate = 8;
+      int64 modifierId = 9;
     }
   }
 }
