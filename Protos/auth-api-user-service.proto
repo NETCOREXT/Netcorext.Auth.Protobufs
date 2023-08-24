@@ -224,7 +224,7 @@ message GetUserFunctionRequest {
     message UserFunction {
       repeated Function functions = 1;
     }
-    
+
     message Function {
       string id = 1;
       netcorext.auth.protobufs.enums.PermissionType permissionType = 2;
@@ -267,12 +267,13 @@ message GetUserRoleRequest {
     }
 
     message RolePermission {
-      int64 permissionId = 1;
-      string name = 2;
-      google.protobuf.Timestamp creationDate = 3;
-      int64 creatorId = 4;
-      google.protobuf.Timestamp modificationDate = 5;
-      int64 modifierId = 6;
+      int64 roleId = 1;
+      int64 permissionId = 2;
+      string name = 3;
+      google.protobuf.Timestamp creationDate = 4;
+      int64 creatorId = 5;
+      google.protobuf.Timestamp modificationDate = 6;
+      int64 modifierId = 7;
     }
 
     message RolePermissionCondition {
