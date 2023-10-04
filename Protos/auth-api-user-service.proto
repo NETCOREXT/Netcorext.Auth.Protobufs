@@ -90,6 +90,7 @@ message GetUserRequest {
   UserRole role = 10;
   repeated UserExtendData extendData = 11;
   UserExternalLogin externalLogin = 12;
+  repeated google.protobuf.StringValue lastSignInIps = 13;
 
   message UserRole {
     google.protobuf.Int64Value roleId = 1;
