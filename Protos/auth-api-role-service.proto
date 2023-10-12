@@ -21,7 +21,7 @@ service RoleService {
 
 message CreateRoleRequest {
   repeated Role roles = 1;
-  
+
   message Role {
     string name = 1;
     bool disabled = 2;
@@ -31,7 +31,7 @@ message CreateRoleRequest {
     repeated RolePermissionCondition permissionConditions = 6;
     google.protobuf.Int64Value customId = 7;
   }
-  
+
   message RoleExtendData {
     string key = 1;
     string value = 2;
@@ -179,6 +179,7 @@ message GetRoleRequest {
       int64 creatorId = 4;
       google.protobuf.Timestamp modificationDate = 5;
       int64 modifierId = 6;
+      google.protobuf.StringValue state = 7;
     }
 
     message RolePermissionCondition {
