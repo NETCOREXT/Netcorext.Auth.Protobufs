@@ -21,7 +21,7 @@ service PermissionService {
 
 message CreatePermissionRequest {
   repeated Permission permissions = 1;
-  
+
   message Permission {
     string name = 1;
     int32 priority = 2;
@@ -29,7 +29,7 @@ message CreatePermissionRequest {
     google.protobuf.StringValue state = 4;
     repeated Rule rules = 5;
   }
-  
+
   message Rule {
     string functionId = 1;
     netcorext.auth.protobufs.enums.PermissionType permissionType = 2;
@@ -94,8 +94,9 @@ message GetPermissionRequest {
       int64 creatorId = 7;
       google.protobuf.Timestamp modificationDate = 8;
       int64 modifierId = 9;
+      google.protobuf.StringValue state = 10;
     }
-    
+
     message Rule {
       int64 id = 1;
       string functionId = 2;
