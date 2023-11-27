@@ -238,6 +238,7 @@ message GetUserRoleRequest {
   bool includeExtendData = 2;
   bool includePermission = 3;
   bool includePermissionCondition = 4;
+  bool includeExpired = 5;
 
   message Result {
     string code = 1;
