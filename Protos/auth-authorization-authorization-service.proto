@@ -33,7 +33,7 @@ message CreateTokenRequest {
     TokenResult content = 3;
 
     message TokenResult {
-      string tokenType = 1;
+      google.protobuf.StringValue tokenType = 1;
       google.protobuf.StringValue accessToken = 2;
       google.protobuf.Int32Value expiresIn = 3;
       google.protobuf.StringValue scope = 4;
