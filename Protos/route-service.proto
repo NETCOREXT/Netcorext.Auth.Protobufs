@@ -1,5 +1,5 @@
 syntax = "proto3";
-package netcorext.auth.authentication;
+package netcorext.auth.gateway;
 option csharp_namespace = "Netcorext.Auth.Protobufs";
 
 import "google/protobuf/wrappers.proto";
@@ -21,9 +21,9 @@ message RegisterRouteRequest {
     google.protobuf.Int32Value forwarderHttpVersionPolicy = 4;
     google.protobuf.Duration forwarderActivityTimeout = 5;
     google.protobuf.BoolValue forwarderAllowResponseBuffering = 6;
-    repeated Route routes = 7;  
+    repeated Route routes = 7;
   }
-  
+
   message Route {
     string protocol = 1;
     string httpMethod = 2;
