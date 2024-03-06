@@ -11,6 +11,7 @@ service AuthorizationService {
   rpc ExternalSignIn (ExternalSignInRequest) returns (ExternalSignInRequest.Result);
   rpc ResetOtp (ResetOtpRequest) returns (netcorext.contracts.protobufs.Result);
   rpc ResetPassword (ResetPasswordRequest) returns (netcorext.contracts.protobufs.Result);
+  rpc RevokeToken (RevokeTokenRequest) returns (netcorext.contracts.protobufs.Result);
   rpc SignIn (SignInRequest) returns (SignInRequest.Result);
   rpc SignOut (SignOutRequest) returns (netcorext.contracts.protobufs.Result);
   rpc ValidateOtp (ValidateOtpRequest) returns (netcorext.contracts.protobufs.Result);
@@ -92,6 +93,12 @@ message ResetOtpRequest {
 message ResetPasswordRequest {
   int64 id = 1;
   google.protobuf.StringValue password = 2;
+}
+
+message RevokeTokenRequest {
+  google.protobuf.StringValue resourceId = 1;
+  google.protobuf.StringValue token = 2;
+  google.protobuf.BoolValue allDevice = 3;
 }
 
 message SignInRequest {
