@@ -10,7 +10,8 @@ service MaintenanceService {
 }
 
 message MaintainRequest {
-  bool enabled = 1;
-  google.protobuf.StringValue message = 2;
-  repeated google.protobuf.Int64Value excludeRoles = 3;
+  string host = 1;
+  bool enabled = 2;
+  google.protobuf.StringValue message = 3;
+  repeated google.protobuf.Int64Value excludeRoles = 4;
 }
