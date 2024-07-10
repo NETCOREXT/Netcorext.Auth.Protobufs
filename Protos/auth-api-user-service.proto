@@ -40,7 +40,8 @@ message CreateUserRequest {
 
   message UserRole {
     int64 roleId = 1;
-    google.protobuf.Timestamp expireDate = 2;
+    int32 priority = 2;
+    google.protobuf.Timestamp expireDate = 3;
   }
 
   message UserExtendData {
@@ -146,11 +147,12 @@ message GetUserRequest {
     message UserRole {
       int64 roleId = 1;
       string name = 2;
-      google.protobuf.Timestamp expireDate = 3;
-      google.protobuf.Timestamp creationDate = 4;
-      int64 creatorId = 5;
-      google.protobuf.Timestamp modificationDate = 6;
-      int64 modifierId = 7;
+      int32 priority = 3;
+      google.protobuf.Timestamp expireDate = 4;
+      google.protobuf.Timestamp creationDate = 5;
+      int64 creatorId = 6;
+      google.protobuf.Timestamp modificationDate = 7;
+      int64 modifierId = 8;
     }
 
     message UserExtendData {
@@ -249,14 +251,15 @@ message GetUserRoleRequest {
       int64 id = 1;
       int64 roleId = 2;
       string name = 3;
-      google.protobuf.Timestamp expireDate = 4;
-      repeated RoleExtendData extendData = 5;
-      repeated RolePermission permissions = 6;
-      repeated RolePermissionCondition permissionConditions = 7;
-      google.protobuf.Timestamp creationDate = 8;
-      int64 creatorId = 9;
-      google.protobuf.Timestamp modificationDate = 10;
-      int64 modifierId = 11;
+      int32 priority = 4;
+      google.protobuf.Timestamp expireDate = 5;
+      repeated RoleExtendData extendData = 6;
+      repeated RolePermission permissions = 7;
+      repeated RolePermissionCondition permissionConditions = 8;
+      google.protobuf.Timestamp creationDate = 9;
+      int64 creatorId = 10;
+      google.protobuf.Timestamp modificationDate = 11;
+      int64 modifierId = 12;
     }
 
     message RoleExtendData {
@@ -314,7 +317,8 @@ message UpdateUserRequest {
   message UserRole {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
     int64 roleId = 2;
-    google.protobuf.Timestamp expireDate = 3;
+    int32 priority = 3;
+    google.protobuf.Timestamp expireDate = 4;
   }
 
   message UserExtendData {
