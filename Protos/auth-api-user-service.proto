@@ -40,8 +40,7 @@ message CreateUserRequest {
 
   message UserRole {
     int64 roleId = 1;
-    int32 priority = 2;
-    google.protobuf.Timestamp expireDate = 3;
+    google.protobuf.Timestamp expireDate = 2;
   }
 
   message UserExtendData {
@@ -317,8 +316,7 @@ message UpdateUserRequest {
   message UserRole {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
     int64 roleId = 2;
-    int32 priority = 3;
-    google.protobuf.Timestamp expireDate = 4;
+    google.protobuf.Timestamp expireDate = 3;
   }
 
   message UserExtendData {

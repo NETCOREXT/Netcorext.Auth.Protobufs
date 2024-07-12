@@ -24,12 +24,13 @@ message CreateRoleRequest {
 
   message Role {
     string name = 1;
-    bool disabled = 2;
-    repeated RoleExtendData extendData = 3;
-    repeated string permissionFromStates = 4;
-    repeated RolePermission permissions = 5;
-    repeated RolePermissionCondition permissionConditions = 6;
-    google.protobuf.Int64Value customId = 7;
+    int32 priority = 2;
+    bool disabled = 3;
+    repeated RoleExtendData extendData = 4;
+    repeated string permissionFromStates = 5;
+    repeated RolePermission permissions = 6;
+    repeated RolePermissionCondition permissionConditions = 7;
+    google.protobuf.Int64Value customId = 8;
   }
 
   message RoleExtendData {
@@ -58,12 +59,13 @@ message CreateRoleRequest {
 message CloneRoleRequest {
   int64 sourceId = 1;
   string name = 2;
-  bool disabled = 3;
-  repeated RoleExtendData extendData = 4;
-  repeated RolePermission permissions = 5;
-  repeated RolePermissionCondition permissionConditions = 6;
-  repeated DefaultPermissionCondition defaultPermissionConditions = 7;
-  google.protobuf.Int64Value customId = 8;
+  int32 priority = 3;
+  bool disabled = 4;
+  repeated RoleExtendData extendData = 5;
+  repeated RolePermission permissions = 6;
+  repeated RolePermissionCondition permissionConditions = 7;
+  repeated DefaultPermissionCondition defaultPermissionConditions = 8;
+  google.protobuf.Int64Value customId = 9;
 
   message RoleExtendData {
     string key = 1;
@@ -101,10 +103,11 @@ message DeleteRoleRequest {
 message UpdateRoleRequest {
   int64 id = 1;
   google.protobuf.StringValue name = 2;
-  google.protobuf.BoolValue disabled = 3;
-  repeated RoleExtendData extendData = 4;
-  repeated RolePermission permissions = 5;
-  repeated RolePermissionCondition permissionConditions = 6;
+  google.protobuf.Int32Value priority = 3;
+  google.protobuf.BoolValue disabled = 4;
+  repeated RoleExtendData extendData = 5;
+  repeated RolePermission permissions = 6;
+  repeated RolePermissionCondition permissionConditions = 7;
 
   message RoleExtendData {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
@@ -153,14 +156,15 @@ message GetRoleRequest {
     message Role {
       int64 id = 1;
       string name = 2;
-      bool disabled = 3;
-      repeated RoleExtendData extendData = 4;
-      repeated RolePermission permissions = 5;
-      repeated RolePermissionCondition permissionConditions = 6;
-      google.protobuf.Timestamp creationDate = 7;
-      int64 creatorId = 8;
-      google.protobuf.Timestamp modificationDate = 9;
-      int64 modifierId = 10;
+      int32 priority = 3;
+      bool disabled = 4;
+      repeated RoleExtendData extendData = 5;
+      repeated RolePermission permissions = 6;
+      repeated RolePermissionCondition permissionConditions = 7;
+      google.protobuf.Timestamp creationDate = 8;
+      int64 creatorId = 9;
+      google.protobuf.Timestamp modificationDate = 10;
+      int64 modifierId = 11;
     }
 
     message RoleExtendData {
