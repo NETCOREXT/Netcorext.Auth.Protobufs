@@ -27,6 +27,7 @@ message CreateTokenRequest {
   google.protobuf.StringValue uniqueId = 6;
   google.protobuf.StringValue scope = 7;
   google.protobuf.StringValue refreshToken = 8;
+  google.protobuf.BoolValue includeRolesInfo = 9;
 
   message Result {
     string code = 1;
@@ -61,6 +62,7 @@ message ExternalSignInRequest {
   repeated UserRole roles = 12;
   google.protobuf.Int64Value customId = 13;
   bool ThrowErrorWhenUserNotFound = 14;
+  google.protobuf.BoolValue includeRolesInfo = 15;
 
   message UserRole {
     int64 roleId = 1;
@@ -105,6 +107,7 @@ message SignInRequest {
   string username = 1;
   string password = 2;
   google.protobuf.StringValue otp = 3;
+  google.protobuf.BoolValue includeRolesInfo = 4;
 
   message Result {
     string code = 1;
