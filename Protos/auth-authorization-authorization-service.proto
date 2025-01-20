@@ -43,6 +43,14 @@ message CreateTokenRequest {
       google.protobuf.StringValue nameId = 6;
       google.protobuf.StringValue error = 7;
       google.protobuf.StringValue errorDescription = 8;
+      repeated Role roles = 9;
+    }
+
+    message Role {
+      int64 id = 1;
+      string name = 2;
+      int32 priority = 3;
+      google.protobuf.Timestamp expireDate = 4;
     }
   }
 }
@@ -75,7 +83,7 @@ message ExternalSignInRequest {
     TokenResult content = 3;
 
     message TokenResult {
-      string tokenType = 1;
+      google.protobuf.StringValue tokenType = 1;
       google.protobuf.StringValue accessToken = 2;
       google.protobuf.Int32Value expiresIn = 3;
       google.protobuf.StringValue scope = 4;
@@ -83,6 +91,14 @@ message ExternalSignInRequest {
       google.protobuf.StringValue nameId = 6;
       google.protobuf.StringValue error = 7;
       google.protobuf.StringValue errorDescription = 8;
+      repeated Role roles = 9;
+    }
+
+    message Role {
+      int64 id = 1;
+      string name = 2;
+      int32 priority = 3;
+      google.protobuf.Timestamp expireDate = 4;
     }
   }
 }
@@ -115,7 +131,7 @@ message SignInRequest {
     TokenResult content = 3;
 
     message TokenResult {
-      string tokenType = 1;
+      google.protobuf.StringValue tokenType = 1;
       google.protobuf.StringValue accessToken = 2;
       google.protobuf.Int32Value expiresIn = 3;
       google.protobuf.StringValue scope = 4;
@@ -123,6 +139,14 @@ message SignInRequest {
       google.protobuf.StringValue nameId = 6;
       google.protobuf.StringValue error = 7;
       google.protobuf.StringValue errorDescription = 8;
+      repeated Role roles = 9;
+    }
+
+    message Role {
+      int64 id = 1;
+      string name = 2;
+      int32 priority = 3;
+      google.protobuf.Timestamp expireDate = 4;
     }
   }
 }
