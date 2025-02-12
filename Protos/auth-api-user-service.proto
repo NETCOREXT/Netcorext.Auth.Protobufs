@@ -23,7 +23,7 @@ service UserService {
 message CreateUserRequest {
   string username = 1;
   google.protobuf.StringValue displayName = 2;
-  string password = 3;
+  google.protobuf.StringValue password = 3;
   google.protobuf.StringValue email = 4;
   google.protobuf.StringValue phoneNumber = 5;
   bool twoFactorEnabled = 6;
