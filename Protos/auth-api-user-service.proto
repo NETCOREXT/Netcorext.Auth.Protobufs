@@ -319,6 +319,7 @@ message UpdateUserRequest {
   repeated UserExtendData extendData = 15;
   repeated UserExternalLogin externalLogins = 16;
   repeated UserPermissionCondition permissionConditions = 17;
+  google.protobuf.BoolValue verified = 18;
 
   message UserRole {
     netcorext.auth.protobufs.enums.CRUD crud = 1;
