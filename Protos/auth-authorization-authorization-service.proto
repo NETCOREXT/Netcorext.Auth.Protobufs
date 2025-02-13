@@ -45,9 +45,10 @@ message CreateTokenRequest {
       google.protobuf.StringValue error = 7;
       google.protobuf.StringValue errorDescription = 8;
       repeated Role roles = 9;
-      google.protobuf.BoolValue hasPassword = 10;
-      google.protobuf.BoolValue emailConfirmed = 11;
-      google.protobuf.BoolValue phoneNumberConfirmed = 12;
+      bool hasPassword = 10;
+      bool emailConfirmed = 11;
+      bool phoneNumberConfirmed = 12;
+      bool verified = 13;
     }
 
     message Role {
@@ -76,6 +77,7 @@ message ExternalSignInRequest {
   bool ThrowErrorWhenUserNotFound = 14;
   google.protobuf.BoolValue includeRolesInfo = 15;
   google.protobuf.BoolValue includeConfirmedInfo = 16;
+  google.protobuf.StringValue password = 17;
 
   message UserRole {
     int64 roleId = 1;
@@ -97,9 +99,10 @@ message ExternalSignInRequest {
       google.protobuf.StringValue error = 7;
       google.protobuf.StringValue errorDescription = 8;
       repeated Role roles = 9;
-      google.protobuf.BoolValue hasPassword = 10;
-      google.protobuf.BoolValue emailConfirmed = 11;
-      google.protobuf.BoolValue phoneNumberConfirmed = 12;
+      bool hasPassword = 10;
+      bool emailConfirmed = 11;
+      bool phoneNumberConfirmed = 12;
+      bool verified = 13;
     }
 
     message Role {
@@ -149,9 +152,10 @@ message SignInRequest {
       google.protobuf.StringValue error = 7;
       google.protobuf.StringValue errorDescription = 8;
       repeated Role roles = 9;
-      google.protobuf.BoolValue hasPassword = 10;
-      google.protobuf.BoolValue emailConfirmed = 11;
-      google.protobuf.BoolValue phoneNumberConfirmed = 12;
+      bool hasPassword = 10;
+      bool emailConfirmed = 11;
+      bool phoneNumberConfirmed = 12;
+      bool verified = 13;
     }
 
     message Role {

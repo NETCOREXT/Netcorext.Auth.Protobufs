@@ -37,6 +37,10 @@ message CreateUserRequest {
   repeated UserExternalLogin externalLogins = 14;
   repeated UserPermissionCondition permissionConditions = 15;
   google.protobuf.Int64Value customId = 16;
+  google.protobuf.BoolValue emailConfirmed = 17;
+  google.protobuf.BoolValue phoneNumberConfirmed = 18;
+  google.protobuf.BoolValue verified = 19;
+  google.protobuf.BoolValue disabled = 20;
 
   message UserRole {
     int64 roleId = 1;
@@ -91,6 +95,7 @@ message GetUserRequest {
   repeated UserExtendData extendData = 11;
   UserExternalLogin externalLogin = 12;
   repeated google.protobuf.StringValue lastSignInIps = 13;
+  google.protobuf.BoolValue verified = 14;
 
   message UserRole {
     google.protobuf.Int64Value roleId = 1;
@@ -142,6 +147,7 @@ message GetUserRequest {
       repeated UserExtendData extendData = 25;
       repeated UserExternalLogin externalLogins = 26;
       repeated UserPermissionCondition permissionConditions  = 27;
+      bool verified = 28;
     }
 
     message UserRole {
